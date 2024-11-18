@@ -2,7 +2,6 @@ package se.yrgo.libraryapp.services;
 
 import java.util.Optional;
 import javax.inject.Inject;
-import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import se.yrgo.libraryapp.dao.UserDao;
 import se.yrgo.libraryapp.entities.*;
@@ -30,5 +29,19 @@ public class UserService {
         }
 
         return Optional.of(loginInfo.getUserId());
-    }        
+    }
+
+    public boolean registerUser(String name, String realname, String password) {
+        String processedRealname = realname.replace("'", "\\'");
+        String passwordHash = encoder.encode(password);
+        return userDao.register(name, processedRealname, passwordHash);
+    }
+
+    public boolean isNameAvailable(String name) {
+        if (name == null || name.trim().length() < 3) {
+            return false;
+        }
+        return userDao.isNameAvailable(name);
+    }
+
 }
