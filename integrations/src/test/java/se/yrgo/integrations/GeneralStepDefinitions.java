@@ -6,20 +6,27 @@ import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import se.yrgo.pages.SearchPage;
+import se.yrgo.pages.StartPage;
+
 import java.net.URL;
 import java.net.MalformedURLException;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 
 public class GeneralStepDefinitions {
     private static WebDriver driver;
+
     @Before
     public void setupWebDriver() {
         try {
             ChromeOptions options = new ChromeOptions();
             driver = new RemoteWebDriver(new URL("http://localhost:4444"),
                     options, false);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            driver.manage().window().maximize();
         } catch (MalformedURLException e) {
             fail(e);
         }
@@ -33,10 +40,12 @@ public class GeneralStepDefinitions {
     public static WebDriver getDriver() {
         return driver;
     }
+
     @Given("the user is on the start page.")
     public void the_user_is_on_the_start_page() {
-        driver.get("http://frontend");
-        if (!"The Library".equals(driver.getTitle())) {
+        final StartPage startPage = new StartPage(driver);
+        startPage.navigateToStartPage();
+        if (!startPage.isOnStartPage()) {
             throw new IllegalStateException("Not on the start page");
         }
     }
