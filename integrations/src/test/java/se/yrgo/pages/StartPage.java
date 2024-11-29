@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class StartPage {
 
     private WebDriver driver;
-    private By findBookButton = By.cssSelector("a.btn.btn-primary");
+    private By findBookButton = By.linkText("FIND A BOOK");
 
     public StartPage(WebDriver driver) {
         this.driver = driver;
@@ -20,8 +20,11 @@ public class StartPage {
         return "The Library".equals(driver.getTitle());
     }
 
-    public void navigateToSearchPage() {
+    public SearchPage navigateToSearchPage() {
         driver.findElement(findBookButton).click();
+        return new SearchPage(driver);
     }
+
+
 
 }

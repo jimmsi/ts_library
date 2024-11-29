@@ -3,7 +3,7 @@ Feature: View search form
   loan.
   Scenario: Getting to the search page
     Given the user is on the start page.
-    When the user navigates to the book search.
+    And the user navigates to the book search.
     Then they can see the search form.
 
 
