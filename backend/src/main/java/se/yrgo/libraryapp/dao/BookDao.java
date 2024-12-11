@@ -87,14 +87,16 @@ public class BookDao {
                 + "ORDER BY return_date ASC";
 
         try (Connection conn = ds.getConnection();
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(query)) {
+                PreparedStatement pstmt = conn.prepareStatement(query);
+                ResultSet rs = pstmt.executeQuery()) {
             return getOverdueFromSet(rs);
         } catch (SQLException ex) {
             logger.error("Uable to get books", ex);
             return List.of();
         }
     }
+
+    // Prepared Statement not really necessary
 
     public boolean lend(BookId book, UserId user) {
         String query = "INSERT INTO book_loan VALUES (?, ?, DATE_ADD(CURDATE(), INTERVAL 1 MONTH))";

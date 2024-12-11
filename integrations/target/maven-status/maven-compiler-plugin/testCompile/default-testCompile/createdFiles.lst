@@ -1,0 +1,6 @@
+se/yrgo/utils/Utils.class
+se/yrgo/pages/SearchPage.class
+se/yrgo/integrations/RunCucumberTest.class
+se/yrgo/integrations/GeneralStepDefinitions.class
+se/yrgo/integrations/SearchStepDefinitions.class
+se/yrgo/pages/StartPage.class
