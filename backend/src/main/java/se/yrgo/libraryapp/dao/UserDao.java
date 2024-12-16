@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.Optional;
 import javax.inject.Inject;
 import javax.sql.DataSource;
+
 import org.owasp.html.PolicyFactory;
 import org.owasp.html.Sanitizers;
 
@@ -69,26 +70,24 @@ public class UserDao {
     }
 
 
-
     public boolean register(String name, String realname, String password) {
         Argon2PasswordEncoder encoder = new Argon2PasswordEncoder();
         String passwordHash = encoder.encode(password);
-
-        // handle names like Ian O'Toole
-        realname = realname.replace("'", "\\'");
-
-        PolicyFactory policy = Sanitizers.FORMATTING.and(Sanitizers.LINKS);
-        realname = policy.sanitize(realname);
 
         if (!isValidRealName(realname)) {
             logger.warn("Invalid characters in realname: " + realname);
             return false;
         }
 
+        PolicyFactory policy = Sanitizers.FORMATTING.and(Sanitizers.LINKS);
+        String sanitizedRealname = policy.sanitize(realname);
+
+        logger.info("Sanitized realname: " + sanitizedRealname);
+
         try (Connection conn = ds.getConnection()) {
             conn.setAutoCommit(false);
 
-            return insertUserAndRole(name, realname, passwordHash, conn);
+            return insertUserAndRole(name, sanitizedRealname, passwordHash, conn);
         } catch (SQLException ex) {
             logger.error("Unable to register user " + name, ex);
             return false;

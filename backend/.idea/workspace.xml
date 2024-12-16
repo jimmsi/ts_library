@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae206cc-e303-477d-af64-b4fa14cbc493" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/RoleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/SessionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/SessionDao.java" afterDir="false" />
+    <list default="true" id="eae206cc-e303-477d-af64-b4fa14cbc493" name="Changes" comment="Merge workshop into backend security">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/yrgo/libraryapp/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +42,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -55,7 +52,53 @@
       <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.yrgo.libraryapp.App" />
+      <module name="libraryapp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.yrgo.libraryapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="libraryapp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.yrgo.libraryapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.yrgo.libraryapp" />
+      <option name="MAIN_CLASS_NAME" value="se.yrgo.libraryapp.IntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="UsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="libraryapp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.yrgo.libraryapp.validators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.yrgo.libraryapp.validators" />
+      <option name="MAIN_CLASS_NAME" value="se.yrgo.libraryapp.validators.UsernameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="backend" />
       <method v="2">
@@ -71,6 +114,13 @@
         <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.IntegrationTest" />
+        <item itemvalue="JUnit.UsernameTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,10 +138,27 @@
       <workItem from="1733739505248" duration="11281000" />
       <workItem from="1733833342720" duration="1750000" />
       <workItem from="1733911048747" duration="3411000" />
+      <workItem from="1734100688254" duration="624000" />
+      <workItem from="1734337785574" duration="4235000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge workshop into backend security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge workshop into backend security" />
   </component>
 </project>
